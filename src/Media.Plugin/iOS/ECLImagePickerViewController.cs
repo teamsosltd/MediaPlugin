@@ -265,7 +265,7 @@ namespace Plugin.Media
 				var fourth = NSBundle.MainBundle.GetLocalizedString("photos at a time", "photos at a time.");
 
 				var message = $"{third} {MaximumImagesCount} {fourth}";
-				var alert = new UIAlertView(title, message, null, null, NSBundle.MainBundle.GetLocalizedString("Okay", "Okay"));
+				var alert = new UIAlertView(title, message, (IUIAlertViewDelegate)null, null, NSBundle.MainBundle.GetLocalizedString("Okay", "Okay"));
 				alert.Show();
 			}
 			return shouldSelect;

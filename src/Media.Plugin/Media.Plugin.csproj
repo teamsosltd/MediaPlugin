@@ -1,7 +1,8 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
+﻿<Project Sdk="MSBuild.Sdk.Extras">
 	<PropertyGroup>
-		<TargetFrameworks>netstandard1.0;netstandard2.0;MonoAndroid80;MonoAndroid81;MonoAndroid90;MonoAndroid10.0;Xamarin.iOS10;uap10.0.16299;Tizen40</TargetFrameworks>
-		<AssemblyName>Plugin.Media</AssemblyName>
+    <!--<TargetFrameworks>netstandard1.0;netstandard2.0;MonoAndroid80;MonoAndroid81;MonoAndroid90;MonoAndroid10.0;Xamarin.iOS10;uap10.0.16299;Tizen40</TargetFrameworks>-->
+    <TargetFrameworks>netstandard2.0;MonoAndroid10.0;Xamarin.iOS10;uap10.0.18362</TargetFrameworks>
+    <AssemblyName>Plugin.Media</AssemblyName>
 		<RootNamespace>Plugin.Media</RootNamespace>
 		<Product>$(AssemblyName) ($(TargetFramework))</Product>
 		<AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -55,14 +56,14 @@
 	
 	<ItemGroup>
 		<None Include="..\..\nuget\readme.txt" PackagePath="readme.txt" Pack="true" />
-		<PackageReference Include="Xamarin.Essentials" Version="1.5.2" />
+		<!--<PackageReference Include="Xamarin.Essentials" Version="1.5.2" />-->
 		<Compile Include="**\Shared\*.cs" />
 	</ItemGroup>
 
 	<ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard')) ">
 	</ItemGroup>
 
-	<ItemGroup Condition=" $(TargetFramework.StartsWith('uap10.0')) ">
+	<ItemGroup Condition=" $(TargetFramework.StartsWith('uap10.0.18362')) ">
 		<Compile Include="**\UWP\*.cs" />
 	</ItemGroup>
 	
@@ -71,12 +72,12 @@
 	</ItemGroup>
 	
 
-	<ItemGroup Condition="$(TargetFramework.StartsWith('MonoAndroid')) And '$(TargetFramework)' != 'MonoAndroid10.0'">
+	<!--<ItemGroup Condition="$(TargetFramework.StartsWith('MonoAndroid')) And '$(TargetFramework)' != 'MonoAndroid10.0'">
 		<PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.3" />
-	</ItemGroup>
+	</ItemGroup>-->
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'MonoAndroid10.0'">
-		<PackageReference Include="Xamarin.AndroidX.Core" Version="1.1.0" />
+		<PackageReference Include="Xamarin.AndroidX.Core" Version="1.3.2.3" />
 	</ItemGroup>
 	
 	<ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
@@ -87,5 +88,8 @@
 		<PackageReference Include="Tizen.NET" Version="4.0.0">
 			<ExcludeAssets>Runtime</ExcludeAssets>
 		</PackageReference>
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\Xamarin-Essentials\Xamarin.Essentials\Xamarin.Essentials.csproj" />
 	</ItemGroup>
 </Project>

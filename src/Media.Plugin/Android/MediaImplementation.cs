@@ -235,8 +235,9 @@ namespace Plugin.Media
                     }
 
                     var contentUri = Android.Net.Uri.FromFile(f);
-                    var mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile, contentUri);
-                    context.SendBroadcast(mediaScanIntent);
+                    MediaScannerConnection.ScanFile(context, new string[] { f.ToString() }, null, null);
+                    //var mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile, contentUri);
+                    //context.SendBroadcast(mediaScanIntent);
                 }
                 catch (Exception ex2)
                 {
