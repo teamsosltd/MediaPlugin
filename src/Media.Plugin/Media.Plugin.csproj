@@ -56,7 +56,7 @@
 	
 	<ItemGroup>
 		<None Include="..\..\nuget\readme.txt" PackagePath="readme.txt" Pack="true" />
-		<!--<PackageReference Include="Xamarin.Essentials" Version="1.5.2" />-->
+		<PackageReference Include="Xamarin.Essentials" Version="*" />
 		<Compile Include="**\Shared\*.cs" />
 	</ItemGroup>
 
@@ -90,6 +90,6 @@
 		</PackageReference>
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\Xamarin-Essentials\Xamarin.Essentials\Xamarin.Essentials.csproj" />
+	  <!--<ProjectReference Include="..\..\..\Xamarin-Essentials\Xamarin.Essentials\Xamarin.Essentials.csproj" />-->
 	</ItemGroup>
 </Project>
