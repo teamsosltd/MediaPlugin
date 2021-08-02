@@ -1,7 +1,7 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
 	<PropertyGroup>
     <!--<TargetFrameworks>netstandard1.0;netstandard2.0;MonoAndroid80;MonoAndroid81;MonoAndroid90;MonoAndroid10.0;Xamarin.iOS10;uap10.0.16299;Tizen40</TargetFrameworks>-->
-    <TargetFrameworks>netstandard2.0;MonoAndroid10.0;Xamarin.iOS10;uap10.0.18362</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;MonoAndroid10.0;Xamarin.iOS10;uap10.0.17763</TargetFrameworks>
     <AssemblyName>Plugin.Media</AssemblyName>
 		<RootNamespace>Plugin.Media</RootNamespace>
 		<Product>$(AssemblyName) ($(TargetFramework))</Product>
@@ -56,14 +56,14 @@
 	
 	<ItemGroup>
 		<None Include="..\..\nuget\readme.txt" PackagePath="readme.txt" Pack="true" />
-		<PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+		<PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
 		<Compile Include="**\Shared\*.cs" />
 	</ItemGroup>
 
 	<ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard')) ">
 	</ItemGroup>
 
-	<ItemGroup Condition=" $(TargetFramework.StartsWith('uap10.0.18362')) ">
+	<ItemGroup Condition=" $(TargetFramework.StartsWith('uap10.0')) ">
 		<Compile Include="**\UWP\*.cs" />
 	</ItemGroup>
 	
