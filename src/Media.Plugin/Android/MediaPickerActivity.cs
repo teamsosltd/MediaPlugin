@@ -26,7 +26,7 @@ namespace Plugin.Media
 	/// <summary>
 	/// Picker
 	/// </summary>
-	[Activity(ConfigurationChanges= ConfigChanges.Orientation | ConfigChanges.ScreenSize | ConfigChanges.UiMode)]
+	[Activity(ConfigurationChanges= ConfigChanges.Orientation | ConfigChanges.ScreenSize | ConfigChanges.UiMode, Exported = true)]
     public class MediaPickerActivity
         : Activity, Android.Media.MediaScannerConnection.IOnScanCompletedListener
     {
