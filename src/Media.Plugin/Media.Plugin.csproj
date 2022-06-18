@@ -31,8 +31,8 @@
 		<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
 		<DebugType>portable</DebugType>
 		<DefineConstants>$(DefineConstants);</DefineConstants>
-		
-	    
+
+    <NoWarn>CS0618</NoWarn>
     <!--When built in 2019 will remove extra references on pack-->
     <DisableExtraReferences>false</DisableExtraReferences>
 
