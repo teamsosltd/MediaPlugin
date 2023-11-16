@@ -437,16 +437,13 @@ namespace Plugin.Media
 
 			}
 
-			Func<Stream> getStreamForExternalStorage = () =>
-			{
-				if (options.RotateImage)
-					return RotateImage(image, options.CompressionQuality, pathExtension);
-				else
-					return File.OpenRead(path);
-			};
+            return new MediaFile(path, () => File.OpenRead(path), streamGetterForExternalStorage: GetStreamForExternalStorage, albumPath: aPath);
 
-			return new MediaFile(path, () => File.OpenRead(path), streamGetterForExternalStorage: () => getStreamForExternalStorage(), albumPath: aPath);
-		}
+            Stream GetStreamForExternalStorage()
+            {
+                return options.RotateImage ? RotateImage(image, options.CompressionQuality, pathExtension) : File.OpenRead(path);
+            }
+        }
 
 		internal static NSDictionary SetGpsLocation(NSDictionary meta, Location location)
 		{
